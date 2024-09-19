@@ -21,82 +21,6 @@ src
 └── application.properties
 pom.xml
 
-Configuración de Dependencias
-
-Asegúrate de que tu `pom.xml` incluye las siguientes dependencias:
-
-<dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-ui</artifactId>
-    <version>1.6.10</version> <!-- Usa la versión más reciente compatible -->
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-    <scope>test</scope>
-</dependency>
-
-Configuración de la Aplicación
-
-En tu archivo `application.properties`, añade las siguientes configuraciones:
-
-server.port=8080
-springdoc.api-docs.path=/v3/api-docs
-springdoc.swagger-ui.path=/swagger-ui.html
-
-Código Fuente
-
-Clase Principal
-
-Archivo: `DemoApplication.java`
-
-package com.example.demo;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class DemoApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
-}
-
-Controlador REST
-
-Archivo: `ExampleController.java`
-
-package com.example.demo;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-@RequestMapping("/api/v1")
-public class ExampleController {
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, World!";
-    }
-}
-
-Archivo de Propiedades
-
-Archivo: `application.properties`
-
-Este archivo debe encontrarse en la carpeta `src/main/resources`:
-
-server.port=8080
-springdoc.api-docs.path=/v3/api-docs
-springdoc.swagger-ui.path=/swagger-ui.html
-
 Compilación y Ejecución
 
 Para compilar y ejecutar la aplicación, sigue estos pasos:
@@ -117,26 +41,7 @@ mvn spring-boot:run
 
 Una vez que la aplicación esté en funcionamiento, puedes acceder a la interfaz de Swagger UI en:
 
-http://localhost:8080/swagger-ui/index.html
-
-Verificación Adicional
-
-Si la URL anterior no funciona, intenta con la siguiente:
-
-http://localhost:8080/swagger-ui.html
-
-Y verifica la URL de OpenAPI directamente accediendo a:
-
-http://localhost:8080/v3/api-docs
-
-Deberías ver un documento JSON con la especificación OpenAPI de tu API.
-
-Problemas Comunes
-
-No se encuentra `swagger-ui.html`
-
-- Verifica dependencias: Asegúrate de que las dependencias en `pom.xml` están correctamente configuradas.
-- Propiedades correctas: Verifica que tu archivo `application.properties` tenga las configuraciones necesarias.
+http://localhost:8086/swagger-ui/index.html
 
 Errores en los logs
 
